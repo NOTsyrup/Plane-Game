@@ -17,12 +17,21 @@ func get_input():
 		if Input.is_action_pressed("player_up"):
 			velocity.y -= 1
 	#look at direction of movement	
-	look_at(position + velocity)
 	#normalize velocity to avoid faster movement towards corners
 	velocity = velocity.normalized() * PLANE_SPEED
+	
+	
+func update_look_direction():
+	look_at(position + velocity)
+	if velocity.x < 0:
+		$Sprite.flip_v = true
+	else:
+		$Sprite.flip_v = false
+
 
 func _physics_process(delta):
 	get_input()
+	update_look_direction()
 	velocity = move_and_slide(velocity)
 	
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Textures/temp_plane.png" type="Texture" id=1]
 [ext_resource path="res://Player/BasePlane.gd" type="Script" id=2]
 [ext_resource path="res://Player/Particles/soot.png" type="Texture" id=3]
+[ext_resource path="res://Projectiles/BaseProjectile.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.364641, 1 )
@@ -11,9 +12,7 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 [node name="BasePlane" type="KinematicBody2D"]
 position = Vector2( 416, 172 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+projectile_class = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 z_index = 2
@@ -25,6 +24,8 @@ visible = false
 polygon = PoolVector2Array( -17, 4, -20, 3, -23, 2, -25, 1, -25, -6, -19, -11, 8, -11, 15, -11, 17, -15, 17, -18, 22, -21, 26, -20, 25, -15, 23, -8, 26, -3, 23, -2, 19, 2, 11, 4, 6, 15, -7, 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( -8, 0 )
@@ -42,3 +43,11 @@ initial_velocity_random = 0.3
 angular_velocity = 3.0
 angular_velocity_random = 0.5
 color_ramp = SubResource( 1 )
+
+[node name="ProjectileSpawn" type="Position2D" parent="."]
+position = Vector2( 29, -3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

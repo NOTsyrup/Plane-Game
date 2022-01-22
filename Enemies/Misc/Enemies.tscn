@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1024, 0, 0.0884099, 0, -0.0884099, 0, 1024, 8, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 600, 0, 0, 0, 0, 1024, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1024, 0, 0.0884099, 0, -0.0884099, 0, 1024, 8, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024.25, 720, 0, 0, 0, 0, 1024, 0 )
 }
 
 [node name="Enemies" type="Node2D"]
@@ -14,13 +14,13 @@ script = ExtResource( 1 )
 p40Enemy = ExtResource( 3 )
 
 [node name="EnemySpawnPath" type="Path2D" parent="."]
-position = Vector2( 512, 0 )
-scale = Vector2( 0.999756, 1 )
+position = Vector2( 1526, 0 )
+scale = Vector2( -0.00586217, 1 )
 curve = SubResource( 1 )
 
 [node name="EnemyPathFollow" type="PathFollow2D" parent="EnemySpawnPath"]
-position = Vector2( 1024, 96.8845 )
-rotation = -1.5708
+position = Vector2( 1024.11, 321.928 )
+rotation = -1.57107
 offset = 1109.03
 script = ExtResource( 2 )
 

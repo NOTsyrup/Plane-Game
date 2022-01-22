@@ -1,10 +1,8 @@
 extends KinematicBody2D
 
+export(int) var xSpawnPos
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var playerPos:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +10,12 @@ func _ready():
 	var oldParent = get_parent()
 	get_parent().remove_child(self)
 	newParent.add_child(self)
-	position = oldParent.position
+	position = Vector2(xSpawnPos, oldParent.position.y)
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _physics_process(delta):
+	playerPos = get_tree().get_root().get_node("/root/Main/Player").position
+	look_at(playerPos)
+	var velocity = position.direction_to(playerPos) * 125
+	if position.distance_to(playerPos) > 5:
+		velocity = move_and_slide(velocity)

@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 export var PLANE_SPEED = 200 
 export var RATE_OF_FIRE = 1
+export var projectile_class:PackedScene
 
 var velocity = Vector2(1,0)
 var is_cooldown = true
 
-export var projectile_class:PackedScene
 
 func get_input():
 	#only get new velocity if a movement key is pressed
@@ -20,7 +20,6 @@ func get_input():
 			velocity.y += 1
 		elif Input.is_action_pressed("player_up"):
 			velocity.y -= 1
-	#look at direction of movement	
 	#normalize velocity to avoid faster movement towards corners
 	velocity = velocity.normalized() * PLANE_SPEED
 	

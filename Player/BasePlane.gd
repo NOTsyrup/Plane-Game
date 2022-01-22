@@ -43,10 +43,9 @@ func _physics_process(delta):
 func shoot():
 	if Input.is_action_pressed("shoot") and is_cooldown:
 		var projectile = projectile_class.instance()
-		add_child(projectile)
-		projectile.transform = $ProjectileSpawn.get_global_transform()
-		remove_child(projectile)
+		projectile.set_shooter(self)
 		get_parent().add_child(projectile)
+		projectile.transform = $ProjectileSpawn.get_global_transform()
 		
 		is_cooldown = false
 		$Timer.start()

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var PLANE_SPEED = 200 
 export var RATE_OF_FIRE = 1
+export var LIVES = 5
 export var projectile_class:PackedScene
 
 var velocity = Vector2(1,0)
@@ -42,9 +43,10 @@ func _physics_process(delta):
 func shoot():
 	if Input.is_action_pressed("shoot") and is_cooldown:
 		var projectile = projectile_class.instance()
-		projectile.set_shooter(self)
+		projectile.set_projectile(self, get_global_mouse_position())
+		#TODO: FUNCTION THAT SETS SHOOTER AND MOUSE POSITION WHERE USER CLICKED
 		get_parent().add_child(projectile)
-		projectile.transform = $ProjectileSpawn.get_global_transform()
+		projectile.position = $ProjectileSpawn.global_position
 		
 		is_cooldown = false
 		$Timer.start()
@@ -56,3 +58,16 @@ func _ready():
 	
 func _on_Timer_timeout():
 	is_cooldown = true
+	
+	
+func take_damage(damage):
+	LIVES -= damage
+	print(LIVES)
+	#TODO: play damage animation
+	if LIVES <= 0:
+		player_death()
+		
+		
+func player_death():
+	#TODO: death particles
+	queue_free()

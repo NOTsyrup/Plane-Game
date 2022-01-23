@@ -11,21 +11,20 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="BasePlane" type="KinematicBody2D"]
 position = Vector2( 416, 172 )
+z_index = 3
+collision_mask = 6
 script = ExtResource( 2 )
 projectile_class = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 z_index = 2
 texture = ExtResource( 1 )
-flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PoolVector2Array( -17, 4, -20, 3, -23, 2, -25, 1, -25, -6, -19, -11, 8, -11, 15, -11, 17, -15, 17, -18, 22, -21, 26, -20, 25, -15, 23, -8, 26, -3, 23, -2, 19, 2, 11, 4, 6, 15, -7, 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.5 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( -8, 0 )
@@ -45,7 +44,6 @@ angular_velocity_random = 0.5
 color_ramp = SubResource( 1 )
 
 [node name="ProjectileSpawn" type="Position2D" parent="."]
-position = Vector2( 29, -3 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -5,15 +5,22 @@ export var SPEED = 100
 var projectile_direction = Vector2.ZERO
 var target:Vector2
 
-var is_projectile_set = false
+var forward_vector = Vector2(1,0)
+
 
 var plane_that_shot:KinematicBody2D
 
 
 func _physics_process(delta):
-	projectile_direction = position.direction_to(target)
-	print(projectile_direction)
-	move_and_slide(projectile_direction * SPEED)
+#	projectile_direction = position.direction_to(target)
+	#print(forward_vector)
+	move_and_slide(forward_vector.normalized() * SPEED)
+	
+	
+func _ready():
+	print(get_parent())
+	look_at(target)
+	print(rotation_degrees)
 	
 	
 func _on_VisibilityNotifier2D_screen_exited():
@@ -23,8 +30,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 func set_projectile(shooter, mouse_pos):
 	target = mouse_pos
 	plane_that_shot = shooter
-	look_at(target)
 	
+	rotate(shooter.get_angle_to(target))
+	forward_vector = target - position
+	forward_vector = forward_vector.normalized()
 
 
 func _on_Area2D_body_entered(body):

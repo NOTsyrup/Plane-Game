@@ -43,10 +43,10 @@ func _physics_process(delta):
 func shoot():
 	if Input.is_action_pressed("shoot") and is_cooldown:
 		var projectile = projectile_class.instance()
-		projectile.set_projectile(self, get_global_mouse_position())
-		#TODO: FUNCTION THAT SETS SHOOTER AND MOUSE POSITION WHERE USER CLICKED
 		get_parent().add_child(projectile)
+		projectile.rotation = 0
 		projectile.position = $ProjectileSpawn.global_position
+		projectile.set_projectile(self, get_global_mouse_position())
 		
 		is_cooldown = false
 		$Timer.start()

@@ -4,6 +4,9 @@ export var PLANE_SPEED = 200
 export var RATE_OF_FIRE = 1
 export var LIVES = 5
 export var projectile_class:PackedScene
+export var UP_collision:RectangleShape2D
+export var RIGHT_collision:RectangleShape2D
+export var CORNER_collision:RectangleShape2D
 
 var velocity = Vector2(1,0)
 var is_cooldown = true
@@ -26,16 +29,53 @@ func get_input():
 	
 	
 func update_look_direction():
-	look_at(position + velocity)
-	if velocity.x < 0:
-		$Sprite.flip_v = true
-	else:
+	#look_at(position + velocity)
+	pass
+	
+	
+func animate():
+	var animation
+	if velocity.x > 0:
+		animation = "Right"
 		$Sprite.flip_v = false
-
+		$Sprite.rotation_degrees = 0
+		$CollisionShape2D.shape = RIGHT_collision
+	else:
+		animation = "Left"
+		$Sprite.flip_v = false
+		$Sprite.rotation_degrees = 0
+		$CollisionShape2D.shape = RIGHT_collision
+	if velocity.y < 0:
+		animation = "Up"
+		$Sprite.flip_v = false
+		$CollisionShape2D.shape = UP_collision
+		if velocity.x > 0:
+			$Sprite.rotation_degrees = 45
+			$CollisionShape2D.shape = CORNER_collision
+		elif velocity.x < 0:
+			$Sprite.rotation_degrees = -45
+			$CollisionShape2D.shape = CORNER_collision
+		else:
+			$Sprite.rotation_degrees = 0
+	elif velocity.y > 0:
+		animation = "Up"
+		$CollisionShape2D.shape = UP_collision
+		$Sprite.flip_v = true
+		if velocity.x > 0:
+			$Sprite.rotation_degrees = -45
+			$CollisionShape2D.shape = CORNER_collision
+		elif velocity.x < 0:
+			$Sprite.rotation_degrees = 45
+			$CollisionShape2D.shape = CORNER_collision
+		else:
+			$Sprite.rotation_degrees = 0
+	$Sprite.animation = animation
+	
 
 func _physics_process(delta):
 	get_input()
 	update_look_direction()
+	animate()
 	shoot()
 	velocity = move_and_slide(velocity)
 	
@@ -54,6 +94,7 @@ func shoot():
 		
 func _ready():
 	$Timer.wait_time = RATE_OF_FIRE
+	$Sprite.play()
 	
 	
 func _on_Timer_timeout():

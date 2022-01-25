@@ -28,11 +28,6 @@ func get_input():
 	velocity = velocity.normalized() * PLANE_SPEED
 	
 	
-func update_look_direction():
-	#look_at(position + velocity)
-	pass
-	
-	
 func animate():
 	var animation
 	if velocity.x > 0:
@@ -74,7 +69,6 @@ func animate():
 
 func _physics_process(delta):
 	get_input()
-	update_look_direction()
 	animate()
 	shoot()
 	velocity = move_and_slide(velocity)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lazer.png-637a919ad4b15e0d6b5da90121ebdf7e.stex"
+path="res://.import/day-background.png-30559add136b56020f128d6585dcb9d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Textures/Lazer.png"
-dest_files=[ "res://.import/Lazer.png-637a919ad4b15e0d6b5da90121ebdf7e.stex" ]
+source_file="res://Sprites/day-background.png"
+dest_files=[ "res://.import/day-background.png-30559add136b56020f128d6585dcb9d4.stex" ]
 
 [params]
 

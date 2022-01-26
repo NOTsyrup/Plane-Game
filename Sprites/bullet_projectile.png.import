@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base-projectile1.png-e9f5847f8b3851c382135ae77be277c1.stex"
+path="res://.import/bullet_projectile.png-30522d5caa62c0eb2587451040a6e8eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Textures/base-projectile1.png"
-dest_files=[ "res://.import/base-projectile1.png-e9f5847f8b3851c382135ae77be277c1.stex" ]
+source_file="res://Sprites/bullet_projectile.png"
+dest_files=[ "res://.import/bullet_projectile.png-30522d5caa62c0eb2587451040a6e8eb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

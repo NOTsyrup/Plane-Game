@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/day-background.png-e9bc49eb08f69f938f11ba773fadc4e7.stex"
+path="res://.import/base-projectile1.png-4d94191b6bcd876b3a7b679b727a4f28.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Textures/day-background.png"
-dest_files=[ "res://.import/day-background.png-e9bc49eb08f69f938f11ba773fadc4e7.stex" ]
+source_file="res://Sprites/base-projectile1.png"
+dest_files=[ "res://.import/base-projectile1.png-4d94191b6bcd876b3a7b679b727a4f28.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

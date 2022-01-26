@@ -10,6 +10,8 @@ export var CORNER_collision:RectangleShape2D
 
 var velocity = Vector2(1,0)
 var is_cooldown = true
+var can_take_damage = true
+var input = true
 
 
 func get_input():
@@ -68,9 +70,11 @@ func animate():
 	
 
 func _physics_process(delta):
-	get_input()
+	if input:
+		get_input()
 	animate()
 	shoot()
+	update_progress_bar()
 	velocity = move_and_slide(velocity)
 	
 	
@@ -83,12 +87,20 @@ func shoot():
 		projectile.set_projectile(self, get_global_mouse_position())
 		
 		is_cooldown = false
-		$Timer.start()
+		$FireRateTimer.start()
+		
+		
+func update_progress_bar():
+	if not is_cooldown:
+		$TextureProgress.value = $FireRateTimer.time_left
+	else:
+		$TextureProgress.value = 0
 		
 		
 func _ready():
-	$Timer.wait_time = RATE_OF_FIRE
+	$FireRateTimer.wait_time = RATE_OF_FIRE
 	$Sprite.play()
+	$TextureProgress.max_value = RATE_OF_FIRE
 	
 	
 func _on_Timer_timeout():
@@ -96,13 +108,24 @@ func _on_Timer_timeout():
 	
 	
 func take_damage(damage):
-	LIVES -= damage
-	print(LIVES)
-	#TODO: play damage animation
-	if LIVES <= 0:
-		player_death()
+	if can_take_damage:
+		LIVES -= damage
+		print(LIVES)
+		$AnimationPlayer.play("Hit")
+		if LIVES <= 0:
+			player_death()
+		can_take_damage = false
+		$OnHitTimer.start()
 		
 		
 func player_death():
-	#TODO: death particles
-	queue_free()
+	$TrailParticles.emitting = false
+	$ExplosionParticle.position = Vector2(0,0)
+	$ExplosionParticle.emitting = true
+	input = false
+	velocity = Vector2.ZERO
+	$Sprite.visible = false
+
+
+func _on_OnHitTimer_timeout():
+	can_take_damage = true

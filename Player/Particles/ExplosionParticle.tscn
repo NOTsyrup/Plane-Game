@@ -9,7 +9,6 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0421487, 0, 0, Vector2( 1, 0 ), -7.62425, 0.0,
 amount = 25
 speed_scale = 2.5
 explosiveness = 1.0
-local_coords = false
 texture = ExtResource( 1 )
 emission_shape = 1
 emission_sphere_radius = 3.5

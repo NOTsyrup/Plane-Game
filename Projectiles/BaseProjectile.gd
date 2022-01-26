@@ -20,7 +20,6 @@ func _physics_process(delta):
 func _ready():
 	print(get_parent())
 	look_at(target)
-	print(rotation_degrees)
 	
 	
 func _on_VisibilityNotifier2D_screen_exited():
@@ -39,5 +38,6 @@ func set_projectile(shooter, mouse_pos):
 func _on_Area2D_body_entered(body):
 	if body.has_method("take_damage") and body != plane_that_shot:
 		body.take_damage(DAMAGE)
-		#TODO: hit particles
+		$HitParticle.emitting = true
+		$Sprite.hide()
 		queue_free()

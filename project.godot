@@ -13,6 +13,10 @@ config_version=4
 config/name="Plane Game"
 config/icon="res://icon.png"
 
+[display]
+
+mouse_cursor/custom_image="res://CrosshairTEMP.png"
+
 [input]
 
 player_up={

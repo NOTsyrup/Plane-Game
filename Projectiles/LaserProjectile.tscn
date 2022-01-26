@@ -4,6 +4,7 @@
 [ext_resource path="res://Sprites/Lazer.png" type="Texture" id=2]
 
 [node name="LaserProjectile" instance=ExtResource( 1 )]
+SPEED = 500
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/Bell-X1-Menu.png" type="Texture" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.466667, 0.431373, 0.423529, 1 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -683.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 600.0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/AspectRatioContainer"]
+margin_top = 268.0
+margin_right = 64.0
+margin_bottom = 332.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer/CenterContainer"]
+margin_left = 26.0
+margin_top = 22.0
+margin_right = 38.0
+margin_bottom = 42.0
+
+[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer/CenterContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

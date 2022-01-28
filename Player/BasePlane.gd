@@ -101,6 +101,7 @@ func shoot():
 		
 		is_cooldown = false
 		$FireRateTimer.start()
+		$ShootSound.play()
 		
 		
 func update_progress_bar():
@@ -131,9 +132,11 @@ func take_damage(damage):
 		can_take_damage = false
 		$OnHitTimer.start()
 		emit_signal("cameraShake")
+		$PlayerHitSound.play()
 		
 		
 func player_death():
+	$PlayerDeadSound.play()
 	$TrailParticles.emitting = false
 	$ExplosionParticle.position = Vector2(0,0)
 	$ExplosionParticle.emitting = true

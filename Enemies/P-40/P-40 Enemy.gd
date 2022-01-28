@@ -32,6 +32,7 @@ func _physics_process(delta):
 func take_damage(damage):
 	lives -= damage
 	if lives <= 0:
+		$KilledSound.play()
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()
 		can_follow = false

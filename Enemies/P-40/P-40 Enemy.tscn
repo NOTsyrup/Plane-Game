@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemies/P-40/P-40.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/P-40/P-40 Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Player/Particles/HitParticle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Killed Enemy.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,6 +40,10 @@ initial_velocity = 159.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="KilledSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -3.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -26,8 +26,19 @@ func get_input():
 			velocity.y += 1
 		elif Input.is_action_pressed("player_up"):
 			velocity.y -= 1
+		
+	#Check if in water
+	if position.y > 575:
+		velocity.y = -1
+		take_damage(1)
+		
+	#Check if almost above screen
+	if position.y < 10:
+		velocity.y = 1	
+	
 	#normalize velocity to avoid faster movement towards corners
 	velocity = velocity.normalized() * PLANE_SPEED
+	
 	
 	
 func animate():

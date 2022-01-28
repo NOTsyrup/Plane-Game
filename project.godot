@@ -11,12 +11,6 @@ config_version=4
 [application]
 
 config/name="Plane Game"
-config/icon="res://icon.png"
-
-[display]
-
-window/size/width=1280
-window/size/height=720
 
 [physics]
 

@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Menu/Bell-X1-Menu.png" type="Texture" id=1]
+[ext_resource path="res://Font/slkscre.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.541176, 0.505882, 0.505882, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="ShortCut" id=6]
+resource_local_to_scene = true
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 224, 113 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 69.0
+margin_right = 673.0
+margin_bottom = 316.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "PLANE-GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+anchor_right = 0.016
+anchor_bottom = 0.056
+margin_left = 735.0
+margin_top = 74.0
+margin_right = 1231.52
+margin_bottom = 118.68
+custom_fonts/normal_font = SubResource( 4 )
+text = "Made in Atlanta by:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchor_right = 0.031
+anchor_bottom = 0.028
+margin_left = 777.0
+margin_top = 134.0
+margin_right = 1200.32
+margin_bottom = 342.84
+custom_fonts/normal_font = SubResource( 5 )
+text = "Nandan Praveen
+Jonas Freck
+Tanner West
+John DeVoe
+Elliott Farrar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 0.394444
+margin_left = 10.0
+margin_right = 310.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = -0.136667
+anchor_top = 0.0366972
+anchor_right = -0.136667
+anchor_bottom = 0.0366972
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+texture = ExtResource( 1 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="Control"]
+anchor_left = -0.136667
+anchor_top = 0.0366972
+anchor_right = -0.136667
+anchor_bottom = 0.0366972
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+rect_pivot_offset = Vector2( 130, 128 )
+custom_fonts/font = ExtResource( 3 )
+shortcut = SubResource( 6 )
+text = "RETURN"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "Button redirects to the Main Menu, originating from the Credits Menu. "
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 131.0
+margin_right = 499.0
+margin_bottom = 241.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "Developed for the TSA Game Design Competition"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+anchor_right = 0.031
+anchor_bottom = 0.028
+margin_left = 623.0
+margin_top = 671.0
+margin_right = 1241.32
+margin_bottom = 793.84
+custom_fonts/normal_font = SubResource( 8 )
+text = "Global Font: \"Silkscreen\" by Jason Kottke. 
+Distributed under the open font license"
+__meta__ = {
+"_edit_use_anchors_": false
+}

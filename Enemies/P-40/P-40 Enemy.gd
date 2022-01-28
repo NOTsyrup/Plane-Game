@@ -9,7 +9,12 @@ var playerPos:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = get_tree().get_root().get_node("Main").Player.position + Vector2(rand_range(0, 1280), rand_range(0, 720))
+	randomize()
+	var random =round(rand_range(1, 2))
+	if random == 1:
+		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(-700, rand_range(0, 720))
+	elif random == 2:
+		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(700,  rand_range(0, 720))
 	
 
 func _physics_process(delta):

@@ -32,11 +32,13 @@ func get_input():
 	#Check if in water
 	if position.y > 575:
 		velocity.y = -1
+		velocity.x = 0
 		take_damage(1)
 		
 	#Check if almost above screen
 	if position.y < 10:
-		velocity.y = 1	
+		velocity.y = 1
+		velocity.x = 0
 	
 	#normalize velocity to avoid faster movement towards corners
 	velocity = velocity.normalized() * PLANE_SPEED

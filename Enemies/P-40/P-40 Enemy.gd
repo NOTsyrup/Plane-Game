@@ -42,7 +42,7 @@ func death():
 
 
 func _on_Area2D_body_entered(body):
-	if body.name == "Player" and can_follow:
+	if body.name == "Player" and can_follow and get_parent().can_player_damage():
 		body.take_damage(1)
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()

@@ -14,7 +14,7 @@ var velocity = Vector2(1,0)
 var is_cooldown = true
 var can_take_damage = true
 var input = true
-
+var can_damage = true
 
 func get_input():
 	#only get new velocity if a movement key is pressed
@@ -125,6 +125,7 @@ func take_damage(damage):
 		LIVES -= damage
 		print(LIVES)
 		$AnimationPlayer.play("Hit")
+		can_damage = false
 		if LIVES <= 0:
 			player_death()
 		can_take_damage = false
@@ -143,7 +144,5 @@ func player_death():
 
 func _on_OnHitTimer_timeout():
 	can_take_damage = true
+	can_damage = true
 	
-	
-func get_lives():
-	return LIVES

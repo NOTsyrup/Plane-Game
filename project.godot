@@ -15,6 +15,9 @@ config/icon="res://icon.png"
 
 [display]
 
+window/size/width=720
+window/size/height=1280
+window/size/fullscreen=true
 mouse_cursor/custom_image="res://Sprites/crosshair.png"
 mouse_cursor/custom_image_hotspot=Vector2( 30, 35 )
 

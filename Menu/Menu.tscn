@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu/Bell-X1-Menu.png" type="Texture" id=1]
+[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.466667, 0.431373, 0.423529, 1 )
+bg_color = Color( 0.541176, 0.505882, 0.505882, 1 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -14,49 +15,126 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="Background" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
 theme = SubResource( 1 )
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -683.0
+[node name="Control" type="Control" parent="."]
+margin_left = 10.0
+margin_right = 310.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer"]
-margin_right = 64.0
-margin_bottom = 600.0
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+texture = ExtResource( 1 )
+expand = true
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/HBoxContainer/AspectRatioContainer"]
-margin_top = 268.0
-margin_right = 64.0
-margin_bottom = 332.0
+[node name="Button" type="Button" parent="Control"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+custom_fonts/font = ExtResource( 2 )
+text = "PLAY"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
+[node name="Control2" type="Control" parent="."]
+margin_left = 320.0
+margin_right = 620.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer/CenterContainer"]
-margin_left = 26.0
-margin_top = 22.0
-margin_right = 38.0
-margin_bottom = 42.0
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+texture = ExtResource( 1 )
+expand = true
 
-[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer/AspectRatioContainer/AspectRatioContainer/CenterContainer"]
-margin_right = 256.0
-margin_bottom = 256.0
-texture_normal = ExtResource( 1 )
+[node name="Button" type="Button" parent="Control2"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+custom_fonts/font = ExtResource( 2 )
+text = "PLANES"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="."]
+margin_left = 640.0
+margin_right = 940.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control3"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Button" type="Button" parent="Control3"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+custom_fonts/font = ExtResource( 2 )
+text = "SETTINGS"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="."]
+margin_left = 960.0
+margin_right = 1260.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control4"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control4"]
+margin_left = 32.0
+margin_top = 232.0
+margin_right = 288.0
+margin_bottom = 488.0
+custom_fonts/font = ExtResource( 2 )
+text = "SETTINGS"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

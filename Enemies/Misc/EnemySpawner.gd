@@ -21,4 +21,4 @@ func _process(delta):
 func _spawnEnemy():
 	print("enemy spawned")
 	var newP40Enemy = p40Enemy.instance()
-	$EnemySpawnPath/EnemyPathFollow.add_child(newP40Enemy)
+	get_tree().get_root().get_node("Main").add_child(newP40Enemy)

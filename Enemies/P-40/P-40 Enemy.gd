@@ -9,11 +9,7 @@ var playerPos:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var newParent = get_tree().get_root().get_node("Main")
-	var oldParent = get_parent()
-	get_parent().remove_child(self)
-	newParent.add_child(self)
-	position = Vector2(xSpawnPos, oldParent.position.y)
+	position = get_tree().get_root().get_node("Main").Player.position + Vector2(rand_range(0, 1280), rand_range(0, 720))
 	
 
 func _physics_process(delta):
@@ -48,7 +44,7 @@ func _on_Area2D_body_entered(body):
 		$AnimatedSprite.hide()
 		can_follow = false
 		$Timer.start()
-		
+
 
 func _on_Timer_timeout():
 	death()

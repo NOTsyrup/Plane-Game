@@ -140,3 +140,7 @@ func player_death():
 
 func _on_OnHitTimer_timeout():
 	can_take_damage = true
+	
+	
+func get_lives():
+	return LIVES

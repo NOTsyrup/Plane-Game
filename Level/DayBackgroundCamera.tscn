@@ -4,6 +4,8 @@
 
 [node name="Camera2D" type="Camera2D"]
 current = true
+limit_top = 0
+limit_bottom = 0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true

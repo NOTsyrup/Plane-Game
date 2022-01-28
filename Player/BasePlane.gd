@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal cameraShake
+
 export var PLANE_SPEED = 200 
 export var RATE_OF_FIRE = 1
 export var LIVES = 5
@@ -127,6 +129,7 @@ func take_damage(damage):
 			player_death()
 		can_take_damage = false
 		$OnHitTimer.start()
+		emit_signal("cameraShake")
 		
 		
 func player_death():

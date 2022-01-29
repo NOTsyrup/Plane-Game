@@ -108,15 +108,15 @@ func shoot():
 		
 func update_progress_bar():
 	if not is_cooldown:
-		$TextureProgress.value = $FireRateTimer.time_left
+		$ShootCooldown.value = $FireRateTimer.time_left
 	else:
-		$TextureProgress.value = 0
+		$ShootCooldown.value = 0
 		
 		
 func _ready():
 	$FireRateTimer.wait_time = RATE_OF_FIRE
 	$Sprite.play()
-	$TextureProgress.max_value = RATE_OF_FIRE
+	$ShootCooldown.max_value = RATE_OF_FIRE
 	
 	
 func _on_Timer_timeout():

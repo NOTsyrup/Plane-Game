@@ -5,6 +5,7 @@ var enemies_alive = 0
 var enemies_killed = 0
 var boss_health = 20
 var boss_alive = false
+var game_completed = false
 
 func _ready():
 	print(Player)

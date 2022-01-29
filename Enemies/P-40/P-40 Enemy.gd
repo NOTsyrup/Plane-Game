@@ -28,12 +28,14 @@ func _physics_process(delta):
 	else:
 		move_and_slide(Vector2.ZERO)
 		
+	if get_tree().get_root().get_node("Main").game_completed:
+		death()
+		
 
 func take_damage(damage):
 	lives -= damage
 	if lives <= 0:
 		get_tree().get_root().get_node("Main").delete_enemy()
-		$KilledSound.play()
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()
 		can_follow = false
@@ -41,6 +43,10 @@ func take_damage(damage):
 		
 		
 func death():
+	$KilledSound.play()
+	$HitParticle.emitting = true
+	$AnimatedSprite.hide()
+	can_follow = false
 	queue_free()
 
 
@@ -51,10 +57,6 @@ func _on_Area2D_body_entered(body):
 		$AnimatedSprite.hide()
 		can_follow = false
 		$Timer.start()
-
-
-func _on_Timer_timeout():
-	death()
 	
 	
 func check_player_death():

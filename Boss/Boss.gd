@@ -29,6 +29,8 @@ func _physics_process(delta):
 	else:
 		move_and_slide(Vector2.ZERO)
 	
+#	music_stages()
+	
 	#missile timer
 	if missile_timer >= 10 && lives > 0:
 		var projectile = projectile_class.instance()
@@ -64,3 +66,23 @@ func check_player_death():
 		can_follow = false
 		rotation = 0
 		
+
+func music_stages():
+	if lives > 0:
+		if lives > 5:
+			$Music.stream = "res://Boss/Music/Stage 2 BF Music.wav"
+			$Music.play()
+		elif lives > 10:
+			$Music.stream = "res://Boss/Music/Stage 1 BF Music.wav"
+			$Music.play()
+		else:
+			$Music.stream = "res://Boss/Music/Stage 3 BF Music.wav"
+			$Music.play()
+	else:
+		$Music.stream = "res://Boss/Music/Explosion BF Music.wav"
+		$Music.play()
+
+
+func _on_Music_finished():
+	if lives > 0:
+		$Music.play()

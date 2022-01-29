@@ -2,6 +2,9 @@ extends Node2D
 
 onready var Player = $Player
 var enemies_alive = 0
+var enemies_killed = 0
+var boss_health = 20
+var boss_alive = false
 
 func _ready():
 	print(Player)

@@ -32,6 +32,7 @@ func _physics_process(delta):
 func take_damage(damage):
 	lives -= damage
 	if lives <= 0:
+		get_tree().get_root().get_node("Main").delete_enemy()
 		$KilledSound.play()
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()

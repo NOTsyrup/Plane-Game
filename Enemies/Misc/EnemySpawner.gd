@@ -12,7 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if spawnTimer >= 1:
+	if spawnTimer >= 1 and get_tree().get_root().get_node("Main").enemies_alive < 12:
+		get_tree().get_root().get_node("Main").add_enemy()
 		emit_signal("_randomPos")
 		_spawnEnemy()
 		spawnTimer = 0

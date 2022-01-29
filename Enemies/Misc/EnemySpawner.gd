@@ -20,7 +20,7 @@ func _process(delta):
 		spawnTimer = 0
 	spawnTimer += delta
 	
-	if (get_tree().get_root().get_node("Main").boss_alive == false && get_tree().get_root().get_node("Main").enemies_killed >= 1):
+	if (get_tree().get_root().get_node("Main").boss_alive == false && get_tree().get_root().get_node("Main").enemies_killed >= 30):
 		get_tree().get_root().get_node("Main").add_child(boss.instance())
 		print("Boss spawned")
 		get_tree().get_root().get_node("Main").boss_alive = true

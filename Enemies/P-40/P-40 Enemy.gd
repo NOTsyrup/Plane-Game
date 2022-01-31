@@ -26,8 +26,9 @@ func _physics_process(delta):
 		if position.distance_to(playerPos) > 5:
 			velocity = move_and_slide(velocity)
 	else:
-		move_and_slide(Vector2.ZERO)
-		
+		move_and_slide(Vector2(125, 0))
+		rotation = 0
+	
 
 func take_damage(damage):
 	lives -= damage
@@ -59,3 +60,4 @@ func _on_Timer_timeout():
 func check_player_death():
 	if get_parent().get_player_lives() <= 0:
 		can_follow = false
+

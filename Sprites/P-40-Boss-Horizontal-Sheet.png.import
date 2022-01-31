@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Clouds.png-a206c15c1b2b8569ff5568c5adfb34ee.stex"
+path="res://.import/P-40-Boss-Horizontal-Sheet.png-86e6a26abb5cb9d480c1bd1a64362251.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clouds.png"
-dest_files=[ "res://.import/Clouds.png-a206c15c1b2b8569ff5568c5adfb34ee.stex" ]
+source_file="res://Sprites/P-40-Boss-Horizontal-Sheet.png"
+dest_files=[ "res://.import/P-40-Boss-Horizontal-Sheet.png-86e6a26abb5cb9d480c1bd1a64362251.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

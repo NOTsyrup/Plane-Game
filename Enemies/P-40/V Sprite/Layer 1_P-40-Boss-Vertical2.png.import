@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Clouds.png-a206c15c1b2b8569ff5568c5adfb34ee.stex"
+path="res://.import/Layer 1_P-40-Boss-Vertical2.png-2e3b39239fda36bec3e3a59de6df2ef2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clouds.png"
-dest_files=[ "res://.import/Clouds.png-a206c15c1b2b8569ff5568c5adfb34ee.stex" ]
+source_file="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical2.png"
+dest_files=[ "res://.import/Layer 1_P-40-Boss-Vertical2.png-2e3b39239fda36bec3e3a59de6df2ef2.stex" ]
 
 [params]
 

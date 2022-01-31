@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(int) var xSpawnPos
+export var projectile_class:PackedScene
 export var lives = 1
 export var damage = 1
 var can_follow = true
@@ -26,14 +26,16 @@ func _physics_process(delta):
 		if position.distance_to(playerPos) > 5:
 			velocity = move_and_slide(velocity)
 	else:
-		move_and_slide(Vector2(125, 0))
-		rotation = 0
-	
+		move_and_slide(Vector2.ZERO)
+		
+	if get_tree().get_root().get_node("Main").game_completed:
+		death()
+		
 
 func take_damage(damage):
 	lives -= damage
 	if lives <= 0:
-		$KilledSound.play()
+		get_tree().get_root().get_node("Main").delete_enemy()
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()
 		can_follow = false
@@ -41,6 +43,10 @@ func take_damage(damage):
 		
 		
 func death():
+	$KilledSound.play()
+	$HitParticle.emitting = true
+	$AnimatedSprite.hide()
+	can_follow = false
 	queue_free()
 
 
@@ -51,13 +57,8 @@ func _on_Area2D_body_entered(body):
 		$AnimatedSprite.hide()
 		can_follow = false
 		$Timer.start()
-
-
-func _on_Timer_timeout():
-	death()
 	
 	
 func check_player_death():
 	if get_parent().get_player_lives() <= 0:
 		can_follow = false
-

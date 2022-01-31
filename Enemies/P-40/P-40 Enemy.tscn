@@ -23,11 +23,12 @@ extents = Vector2( 31.5, 31 )
 [node name="P-40 Enemy" type="KinematicBody2D"]
 collision_mask = 0
 script = ExtResource( 2 )
-xSpawnPos = 1500
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 1 )
+frame = 4
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, -1 )

@@ -48,6 +48,7 @@ func take_damage(damage):
 		rotation = 0
 		get_tree().get_root().get_node("Main").game_completed = true
 		$BossExplosion.can_explode = true
+		$AnimatedSprite.rotation = 0
 		can_follow = false
 	
 

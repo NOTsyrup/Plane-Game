@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Enemies/Misc/Enemies.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Bell-X1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Level.gd" type="Script" id=3]
 [ext_resource path="res://Player/Camera2D2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Camera.gd" type="Script" id=5]
+[ext_resource path="res://Boss/Boss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Boss/BossHealth.gd" type="Script" id=7]
+[ext_resource path="res://Player/ProgressBar/FullProgress.png" type="Texture" id=8]
+[ext_resource path="res://Player/ProgressBar/NoProgress.png" type="Texture" id=9]
+[ext_resource path="res://Player/ProgressBar/KillsUntilBoss.gd" type="Script" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -20,7 +25,35 @@ zoom = Vector2( 1, 1 )
 smoothing_speed = 1.0
 script = ExtResource( 5 )
 
-[node name="Enemies" parent="Player" instance=ExtResource( 1 )]
-position = Vector2( -640, -360 )
+[node name="BossHealth" type="TextureProgress" parent="Player/Camera"]
+anchor_right = 1.0
+margin_left = -616.0
+margin_top = -336.0
+margin_right = 616.0
+margin_bottom = -312.0
+rect_min_size = Vector2( 32, 3 )
+max_value = 20.0
+step = 0.0
+value = 20.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 8 )
+fill_mode = 6
+nine_patch_stretch = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KillsUntilBoss" type="Label" parent="Player/Camera/BossHealth"]
+margin_right = 168.0
+margin_bottom = 24.0
+text = "30"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemies" parent="." instance=ExtResource( 1 )]
+boss = ExtResource( 6 )
 
 [connection signal="cameraShake" from="Player" to="Player/Camera" method="_on_Player_cameraShake"]

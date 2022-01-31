@@ -32,11 +32,13 @@ func get_input():
 	#Check if in water
 	if position.y > 575:
 		velocity.y = -1
+		velocity.x = 0
 		take_damage(1)
 		
 	#Check if almost above screen
 	if position.y < 10:
-		velocity.y = 1	
+		velocity.y = 1
+		velocity.x = 0
 	
 	#normalize velocity to avoid faster movement towards corners
 	velocity = velocity.normalized() * PLANE_SPEED
@@ -106,15 +108,15 @@ func shoot():
 		
 func update_progress_bar():
 	if not is_cooldown:
-		$TextureProgress.value = $FireRateTimer.time_left
+		$ShootCooldown.value = $FireRateTimer.time_left
 	else:
-		$TextureProgress.value = 0
+		$ShootCooldown.value = 0
 		
 		
 func _ready():
 	$FireRateTimer.wait_time = RATE_OF_FIRE
 	$Sprite.play()
-	$TextureProgress.max_value = RATE_OF_FIRE
+	$ShootCooldown.max_value = RATE_OF_FIRE
 	
 	
 func _on_Timer_timeout():

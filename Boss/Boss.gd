@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if can_follow:
 		playerPos = get_tree().get_root().get_node("/root/Main/Player").position
 		look_at(playerPos)
-		var velocity = position.direction_to(playerPos) * 200
+		var velocity = position.direction_to(playerPos) * 250
 		if position.distance_to(playerPos) > 5:
 			velocity = move_and_slide(velocity)
 	else:
@@ -32,13 +32,13 @@ func _physics_process(delta):
 #	music_stages()
 	
 	#missile timer
-	if missile_timer >= 10 && lives > 0:
+	if missile_timer >= 0.5 && lives > 0:
 		var projectile = projectile_class.instance()
 		get_parent().add_child(projectile)
-		projectile.position = Vector2(position.x + rand_range(-250, 250), -250)
+		projectile.position = Vector2(position.x + rand_range(-500, 500), -250)
 		missile_timer = 0
 	#Undo the comment below to enable missiles with boss
-#	missile_timer += delta
+	#missile_timer += delta
 	
 
 func take_damage(damage):

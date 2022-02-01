@@ -4,13 +4,14 @@
 [ext_resource path="res://Boss/Boss.gd" type="Script" id=2]
 [ext_resource path="res://Player/Particles/HitParticle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Killed Enemy.wav" type="AudioStream" id=4]
-[ext_resource path="res://Projectiles/GuidedMissile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Projectiles/GuidedLaser.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Boss/Death Particle/BossExplosion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Boss/Music/Stage 1 BF Music.wav" type="AudioStream" id=7]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical1.png" type="Texture" id=8]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical3.png" type="Texture" id=9]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical2.png" type="Texture" id=10]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical5.png" type="Texture" id=11]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

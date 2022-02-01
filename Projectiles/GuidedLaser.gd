@@ -17,7 +17,7 @@ func _physics_process(delta):
 	#print(forward_vector)
 	if can_hit:
 		look_at(get_tree().get_root().get_node("Main").Player.position)
-		var velocity = position.direction_to(get_tree().get_root().get_node("Main").Player.position) * 250
+		var velocity = position.direction_to(get_tree().get_root().get_node("Main").Player.position) * 300
 		if position.distance_to(get_tree().get_root().get_node("Main").Player.position) > 5:
 			velocity = move_and_slide(velocity)
 	

@@ -56,4 +56,21 @@ __meta__ = {
 [node name="Enemies" parent="." instance=ExtResource( 1 )]
 boss = ExtResource( 6 )
 
+[node name="GameOver" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+color = Color( 0.584314, 0.537255, 0.537255, 0.752941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="cameraShake" from="Player" to="Player/Camera" method="_on_Player_cameraShake"]

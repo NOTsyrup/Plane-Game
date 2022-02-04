@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Killed Enemy.wav-9832d84b7ae3d84e6533bdf76c73869b.sample"
+
+[deps]
+
+source_file="res://Sounds/Killed Enemy.wav"
+dest_files=[ "res://.import/Killed Enemy.wav-9832d84b7ae3d84e6533bdf76c73869b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

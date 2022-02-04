@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Stage 2 BF Music.wav-e15c513221f2fa25d23d58aa9393f31e.sample"
+
+[deps]
+
+source_file="res://Boss/Music/Stage 2 BF Music.wav"
+dest_files=[ "res://.import/Stage 2 BF Music.wav-e15c513221f2fa25d23d58aa9393f31e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

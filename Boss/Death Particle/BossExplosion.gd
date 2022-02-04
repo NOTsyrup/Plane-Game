@@ -12,10 +12,11 @@ var should_timer_big = true
 
 var end_explosion = false
 
+var can_explode = false
 
 func _process(delta):
-	exploding()
-	
+	if can_explode:
+		exploding()
 	
 func exploding():
 	if not end_explosion:
@@ -46,3 +47,4 @@ func _on_LittleExplosionTimer_timeout():
 
 func _on_BigExplosion_timeout():
 	big_timer_out = true
+	get_parent().find_node("AnimatedSprite").visible = false

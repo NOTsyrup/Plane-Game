@@ -12,6 +12,9 @@ projectile_class = ExtResource( 2 )
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( -2, 1.5 )
 
+[node name="ShootCooldown" parent="." index="8"]
+rect_pivot_offset = Vector2( -16, 32 )
+
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." index="9"]
 stream = ExtResource( 3 )
 volume_db = -6.0

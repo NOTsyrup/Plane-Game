@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export var DAMAGE = 1
-export var SPEED = 100
+export var DAMAGE = 3
+export var SPEED = 200
 var death = false
 var can_hit = true
 var projectile_direction = Vector2.ZERO
@@ -16,33 +16,23 @@ func _physics_process(delta):
 #	projectile_direction = position.direction_to(target)
 	#print(forward_vector)
 	if can_hit:
-		move_and_slide(forward_vector.normalized() * SPEED)
+		look_at(get_tree().get_root().get_node("Main").Player.position)
+		var velocity = position.direction_to(get_tree().get_root().get_node("Main").Player.position) * 300
+		if position.distance_to(get_tree().get_root().get_node("Main").Player.position) > 5:
+			velocity = move_and_slide(velocity)
 	
 	
 func _ready():
 	print(get_parent())
 	look_at(target)
-	$Timer.start()
-	
-	
-func set_projectile(shooter, mouse_pos):
-	target = mouse_pos
-	plane_that_shot = shooter
-	
-	rotate(shooter.get_angle_to(target))
-	forward_vector = target - position
-	forward_vector = forward_vector.normalized()
 
 
 func _on_Area2D_body_entered(body):
-	if body.has_method("take_damage") and body != plane_that_shot and can_hit:
+	if body.has_method("take_damage") and body and can_hit:
 		body.take_damage(DAMAGE)
-		get_tree().get_root().get_node("Main").enemies_killed += 1
-	if body.name == "Boss":
 		queue_free()
 
 
 func _on_Timer_timeout():
 	queue_free()
-	
 	

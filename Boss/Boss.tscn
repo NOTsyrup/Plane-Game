@@ -1,0 +1,81 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical4.png" type="Texture" id=1]
+[ext_resource path="res://Boss/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Player/Particles/HitParticle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Killed Enemy.wav" type="AudioStream" id=4]
+[ext_resource path="res://Projectiles/GuidedLaser.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Boss/Death Particle/BossExplosion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Boss/Music/Stage 1 BF Music.wav" type="AudioStream" id=7]
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical1.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical3.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical2.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical5.png" type="Texture" id=11]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss4.png" type="Texture" id=12]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss1.png" type="Texture" id=13]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss2.png" type="Texture" id=14]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss5.png" type="Texture" id=15]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss3.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "blue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "green",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 30.4 )
+
+[node name="Boss" type="KinematicBody2D"]
+scale = Vector2( 2.5, 2.5 )
+collision_mask = 0
+script = ExtResource( 2 )
+projectile_class = ExtResource( 5 )
+
+[node name="BossExplosion" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 0 )
+scale = Vector2( 1, 1 )
+z_index = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = SubResource( 1 )
+animation = "blue"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.8147e-07, -1.6 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="HitParticle" parent="." instance=ExtResource( 3 )]
+amount = 8
+initial_velocity = 159.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="KilledSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -3.0
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]

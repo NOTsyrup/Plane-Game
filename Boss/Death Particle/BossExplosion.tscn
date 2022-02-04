@@ -15,11 +15,13 @@ offsets = PoolRealArray( 0, 0.685083, 0.994475, 1 )
 colors = PoolColorArray( 0.507813, 0.466156, 0.466156, 1, 0.00859656, 0.00636006, 0.00636006, 0.195469, 0, 0, 0, 0.188235, 0.0532987, 0.0394323, 0.0394323, 0.233084 )
 
 [node name="BossExplosion" type="Node2D"]
-position = Vector2( 501, 267 )
+position = Vector2( 640, 360 )
+scale = Vector2( 0.35, 0.35 )
+z_index = 100
 script = ExtResource( 3 )
 
 [node name="SmallExplosionParticles1" type="CPUParticles2D" parent="."]
-position = Vector2( 40, 0 )
+position = Vector2( 25, 0 )
 emitting = false
 amount = 130
 randomness = 0.6
@@ -41,7 +43,7 @@ scale_amount_random = 0.2
 color_ramp = SubResource( 1 )
 
 [node name="SmallExplosionParticles2" type="CPUParticles2D" parent="."]
-position = Vector2( -40, 0 )
+position = Vector2( -25, 0 )
 emitting = false
 amount = 130
 randomness = 0.6

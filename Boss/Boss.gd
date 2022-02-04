@@ -10,6 +10,8 @@ var playerPos:Vector2
 
 
 func _ready():
+	$AnimatedSprite.animation = "blue"
+	$AnimatedSprite.scale = Vector2(0.5, 0.5)
 	randomize()
 	var random =round(rand_range(1, 2))
 	if random == 1:

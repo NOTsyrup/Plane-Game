@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical4.png" type="Texture" id=1]
 [ext_resource path="res://Boss/Boss.gd" type="Script" id=2]
@@ -11,13 +11,22 @@
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical3.png" type="Texture" id=9]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical2.png" type="Texture" id=10]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical5.png" type="Texture" id=11]
-
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss4.png" type="Texture" id=12]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss1.png" type="Texture" id=13]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss2.png" type="Texture" id=14]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss5.png" type="Texture" id=15]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss3.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "blue",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "default",
+"name": "green",
 "speed": 5.0
 } ]
 
@@ -38,12 +47,12 @@ z_index = 0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 1 )
-frame = 2
+animation = "blue"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -3.8147e-07, -1.6 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]

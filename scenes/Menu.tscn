@@ -115,7 +115,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[right]Start[/right]"
-text = "Credits"
+text = "Start"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

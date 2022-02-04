@@ -11,7 +11,6 @@ config_version=4
 [application]
 
 config/name="Plane Game"
-run/main_scene="res://scenes/Menu.tscn"
 
 [display]
 

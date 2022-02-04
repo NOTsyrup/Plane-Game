@@ -94,12 +94,13 @@ func _physics_process(delta):
 	
 	
 func shoot():
-	if Input.is_action_pressed("shoot") and is_cooldown:
-		var projectile = projectile_class.instance()
-		get_parent().add_child(projectile)
-		projectile.rotation = 0
-		projectile.position = $ProjectileSpawn.global_position
-		projectile.set_projectile(self, get_global_mouse_position())
+	if LIVES > 0:
+		if Input.is_action_pressed("shoot") and is_cooldown:
+			var projectile = projectile_class.instance()
+			get_parent().add_child(projectile)
+			projectile.rotation = 0
+			projectile.position = $ProjectileSpawn.global_position
+			projectile.set_projectile(self, get_global_mouse_position())
 		
 		is_cooldown = false
 		$FireRateTimer.start()
@@ -114,6 +115,7 @@ func update_progress_bar():
 		
 		
 func _ready():
+	$GameOver.visible = false
 	$FireRateTimer.wait_time = RATE_OF_FIRE
 	$Sprite.play()
 	$ShootCooldown.max_value = RATE_OF_FIRE
@@ -145,6 +147,8 @@ func player_death():
 	input = false
 	velocity = Vector2.ZERO
 	$Sprite.visible = false
+	position = Vector2(1280/2, 720/2)
+	$GameOver.visible = true
 
 
 func _on_OnHitTimer_timeout():

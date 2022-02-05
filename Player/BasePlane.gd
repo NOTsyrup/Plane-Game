@@ -96,15 +96,15 @@ func _physics_process(delta):
 func shoot():
 	if LIVES > 0:
 		if Input.is_action_pressed("shoot") and is_cooldown:
-			var projectile = projectile_class.instance()
-			get_parent().add_child(projectile)
-			projectile.rotation = 0
-			projectile.position = $ProjectileSpawn.global_position
-			projectile.set_projectile(self, get_global_mouse_position())
-		
-		is_cooldown = false
-		$FireRateTimer.start()
-		$ShootSound.play()
+				var projectile = projectile_class.instance()
+				get_parent().add_child(projectile)
+				projectile.rotation = 0
+				projectile.position = $ProjectileSpawn.global_position
+				projectile.set_projectile(self, get_global_mouse_position())
+			
+				is_cooldown = false
+				$FireRateTimer.start()
+				$ShootSound.play()
 		
 		
 func update_progress_bar():

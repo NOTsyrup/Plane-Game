@@ -103,7 +103,7 @@ hue_variation = 0.15
 hue_variation_random = 0.5
 
 [node name="LittleExplosionTimer" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 2.5
 one_shot = true
 
 [node name="BigExplosion" type="Timer" parent="."]

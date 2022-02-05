@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Enemies/Misc/Enemies.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Bell-X1.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Player/ProgressBar/KillsUntilBoss.gd" type="Script" id=10]
 [ext_resource path="res://Fonts/silkscreen.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Misc/GameOver.gd" type="Script" id=12]
+[ext_resource path="res://Player/ProgressBar/FullProgress (1).png" type="Texture" id=13]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,6 +29,7 @@ smoothing_speed = 1.0
 script = ExtResource( 5 )
 
 [node name="BossHealth" type="TextureProgress" parent="Player/Camera"]
+visible = false
 anchor_right = 1.0
 margin_left = -616.0
 margin_top = -336.0
@@ -46,10 +48,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="KillsUntilBoss" type="Label" parent="Player/Camera/BossHealth"]
-margin_right = 168.0
-margin_bottom = 24.0
-text = "30"
+[node name="UntilBoss" type="TextureProgress" parent="Player/Camera"]
+anchor_right = 1.0
+margin_left = -616.0
+margin_top = -336.0
+margin_right = 616.0
+margin_bottom = -312.0
+rect_min_size = Vector2( 32, 3 )
+max_value = 30.0
+step = 0.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 13 )
+fill_mode = 6
+nine_patch_stretch = true
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false

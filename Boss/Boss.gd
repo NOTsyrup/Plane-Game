@@ -18,7 +18,7 @@ func _ready():
 		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(-800, rand_range(0, 720))
 	elif random == 2:
 		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(800,  rand_range(0, 720))
-
+	
 
 func _physics_process(delta):
 	check_player_death()

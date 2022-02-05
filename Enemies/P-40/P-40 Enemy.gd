@@ -34,12 +34,12 @@ func _physics_process(delta):
 
 func take_damage(damage):
 	lives -= damage
-	if lives <= 0:
+	if lives <= 0  and can_follow:
 		get_tree().get_root().get_node("Main").delete_enemy()
 		$HitParticle.emitting = true
 		$AnimatedSprite.hide()
-		can_follow = false
 		$Timer.start()
+		can_follow = false
 		
 		
 func death():

@@ -21,6 +21,9 @@ func _process(delta):
 	spawnTimer += delta
 	
 	if (get_tree().get_root().get_node("Main").boss_alive == false && get_tree().get_root().get_node("Main").enemies_killed >= 30):
+			#change camera position
+#		get_tree().get_root().get_node("Main").find_node("Camera").position.x = get_tree().get_root().get_node("Main").Player.position.x
+	
 		get_tree().get_root().get_node("Main").add_child(boss.instance())
 		print("Boss spawned")
 		get_tree().get_root().get_node("Main").boss_alive = true

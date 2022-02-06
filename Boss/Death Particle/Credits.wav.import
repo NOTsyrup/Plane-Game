@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Credits.wav-578fc29884d9522584275939d81e52a6.sample"
+
+[deps]
+
+source_file="res://Boss/Death Particle/Credits.wav"
+dest_files=[ "res://.import/Credits.wav-578fc29884d9522584275939d81e52a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

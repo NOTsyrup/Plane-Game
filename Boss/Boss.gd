@@ -18,14 +18,14 @@ func _ready():
 		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(-800, rand_range(0, 720))
 	elif random == 2:
 		position = Vector2(get_tree().get_root().get_node("Main").Player.position.x, 0) + Vector2(800,  rand_range(0, 720))
-
+	
 
 func _physics_process(delta):
 	check_player_death()
 	if can_follow:
 		playerPos = get_tree().get_root().get_node("/root/Main/Player").position
 		look_at(playerPos)
-		var velocity = position.direction_to(playerPos) * 250
+		var velocity = position.direction_to(playerPos) * 150 * Global.enemy_speed_multi
 		if position.distance_to(playerPos) > 5:
 			velocity = move_and_slide(velocity)
 	else:

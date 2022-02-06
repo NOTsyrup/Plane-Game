@@ -115,6 +115,7 @@ func update_progress_bar():
 		
 		
 func _ready():
+	Global.wave += 1
 	$GameOver.visible = false
 	$FireRateTimer.wait_time = RATE_OF_FIRE
 	$Sprite.play()
@@ -155,3 +156,5 @@ func _on_OnHitTimer_timeout():
 	can_take_damage = true
 	can_damage = true
 	
+func _hide_sprite():
+	$Sprite.visible = false

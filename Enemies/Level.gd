@@ -10,7 +10,6 @@ var game_completed = false
 func _ready():
 	print(Player)
 
-
 func get_player_lives():
 	return Player.LIVES
 

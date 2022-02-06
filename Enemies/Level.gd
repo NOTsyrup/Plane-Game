@@ -10,6 +10,7 @@ var score = 0
 
 func _ready():
 	print(Player)
+	score = Global.score
 
 
 func get_player_lives():
@@ -29,7 +30,8 @@ func delete_enemy():
 func set_score(num, multiplier):
 	var base_points = num
 	base_points = multiplier * base_points
-	score += base_points
+	score += base_points * 100
+	Global.score = score
 	
 	
 func get_score():

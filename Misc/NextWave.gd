@@ -15,6 +15,7 @@ func _on_Menu_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
 	Global.enemy_speed_multi = 1
 	Global.wave = 0
+	Global.score = 0
 
 
 func _on_Boss_Death_finished():

@@ -1,0 +1,370 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Fonts/silkscreen.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/slkscr.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/MainMenuSprites/Start Screen.png" type="Texture" id=3]
+[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss1 2.png" type="Texture" id=4]
+[ext_resource path="res://Player/Textures/Bell-X1.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/silkscreen 2.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical1.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CloudCycle"
+length = 3.501
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Cloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Ocean:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -916, 153 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Cloud")
+autoplay = "CloudCycle"
+anims/CloudCycle = SubResource( 1 )
+"anims/New Anim" = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -1.0
+margin_right = 1280.0
+margin_bottom = 719.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+margin_right = 271.0
+margin_bottom = 203.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 14.0
+margin_top = -1.0
+margin_right = 624.0
+margin_bottom = 212.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "More info"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 977.0
+margin_top = 26.0
+margin_right = 1246.0
+margin_bottom = 176.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Aircraft"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 21.0
+margin_top = 106.0
+margin_right = 528.0
+margin_bottom = 280.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Including How to Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+margin_left = 672.0
+margin_top = 647.0
+margin_right = 1302.0
+margin_bottom = 821.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Information related to Copyright can be found in the \"Credits\" panel."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+margin_left = 11.0
+margin_top = 134.0
+margin_right = 578.0
+margin_bottom = 194.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "How to Play: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+margin_left = 13.0
+margin_top = 181.0
+margin_right = 630.0
+margin_bottom = 420.0
+custom_fonts/normal_font = SubResource( 6 )
+text = "Use W-A-S-D to move Up, Left, Down and Right. 
+Use Left Mouse Button to fire the weapon attached to your aircraft. 
+Use your cursor to aim, prior to firing. (Crosshair)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_right = 0.286
+anchor_bottom = 0.109
+margin_left = 789.0
+margin_top = 42.0
+margin_right = 550.92
+margin_bottom = 91.52
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+margin_left = 413.0
+margin_top = 598.0
+margin_right = 1341.0
+margin_bottom = 817.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "Credit to the Smithsonian Institute for information regarding the aircraft shown above. Permission was granted for use of this Information by Smithsonian. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+anchor_right = 0.07
+anchor_bottom = 0.056
+margin_left = 945.0
+margin_top = 99.0
+margin_right = 1163.4
+margin_bottom = 124.68
+custom_fonts/normal_font = SubResource( 8 )
+text = "Vought F4U-1D Corsair"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="."]
+anchor_right = 0.057
+anchor_bottom = 0.077
+margin_left = 906.0
+margin_top = 152.0
+margin_right = 1201.04
+margin_bottom = 136.56
+custom_fonts/normal_font = SubResource( 9 )
+text = "Easily one of the most iconic planes of all time, period."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="."]
+margin_left = 890.0
+margin_top = 192.0
+margin_right = 1255.0
+margin_bottom = 285.0
+custom_fonts/normal_font = SubResource( 10 )
+text = "Carrying up to 4000 pounds of bombs or 8 5-inch rockets, this beast of a plane leaves nothing but destruction in its wake. It has enough artillery to back this up too, with Six .50 caliber machine guns or 20 mm cannons for close range combat."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_right = 0.057
+anchor_bottom = 0.041
+margin_left = 1058.0
+margin_top = 294.0
+margin_right = 1177.04
+margin_bottom = 328.48
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="."]
+anchor_right = 0.1
+anchor_bottom = 0.086
+margin_left = 769.0
+margin_top = 279.0
+margin_right = 1007.0
+margin_bottom = 272.08
+custom_fonts/normal_font = SubResource( 11 )
+text = "Bell X1 Glamorous Glennis "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="."]
+anchor_right = 0.464
+anchor_bottom = 0.435
+margin_left = 633.0
+margin_top = 336.0
+margin_right = 437.08
+margin_bottom = 81.8
+custom_fonts/normal_font = SubResource( 12 )
+text = "Being the first plane to break the sound barrier, speed is no stranger to the Bell X1."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="."]
+margin_left = 678.0
+margin_top = 376.0
+margin_right = 1263.0
+margin_bottom = 438.0
+custom_fonts/normal_font = SubResource( 13 )
+text = "It is constructed from high-grade aluminum and propellant tanks made of steel to ensure that nothing gets in this speedster’s way. The only question is, can you handle the speed? "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_left = 623.0
+margin_top = 458.0
+margin_right = 1157.0
+margin_bottom = 923.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="."]
+margin_left = 713.0
+margin_top = 452.0
+margin_right = 1217.0
+margin_bottom = 492.0
+custom_fonts/normal_font = ExtResource( 6 )
+text = "Curtiss P-40E Warhawk "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="."]
+margin_left = 693.0
+margin_top = 480.0
+margin_right = 1300.0
+margin_bottom = 545.0
+custom_fonts/normal_font = SubResource( 14 )
+text = "Perhaps the most popular and easily accessible bomber during WW2, the P40 was the plane that engaged enemy Japanese aircraft at Pearl Harbor. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="."]
+anchor_right = 0.05
+anchor_bottom = 0.092
+margin_left = 653.0
+margin_top = 535.0
+margin_right = 1264.0
+margin_bottom = 508.76
+custom_fonts/normal_font = SubResource( 15 )
+text = "It can carry up to 700 lbs. of bombs and has six .50-cal machine guns. With a maximum speed of 362 mph and cruising speed of 235 mph, it can speed through enemy ranks and cause pure destruction. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 13.0
+margin_top = 579.0
+margin_right = 386.0
+margin_bottom = 708.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton"]
+margin_left = 39.0
+margin_top = 42.0
+margin_right = 553.0
+margin_bottom = 178.0
+custom_fonts/normal_font = SubResource( 16 )
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -106,15 +106,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsButton"]
-margin_left = 40.0
-margin_right = 400.0
-margin_bottom = 85.0
-color = Color( 0, 0, 0, 0.341176 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/CreditsButton"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -142,15 +133,6 @@ margin_right = 847.0
 margin_bottom = 560.0
 rect_pivot_offset = Vector2( 161, 290 )
 action_mode = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartButton"]
-margin_left = 40.0
-margin_right = 400.0
-margin_bottom = 85.0
-color = Color( 0, 0, 0, 0.341176 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -184,15 +166,6 @@ rect_pivot_offset = Vector2( 46, 105 )
 mouse_filter = 1
 mouse_default_cursor_shape = 3
 action_mode = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/QuitButton"]
-margin_left = 56.0
-margin_right = 288.0
-margin_bottom = 85.0
-color = Color( 0, 0, 0, 0.341176 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

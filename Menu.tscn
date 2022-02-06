@@ -137,7 +137,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[right]Credits[/right]"
-text = "Credits"
+text = "[right]Credits[/right]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -169,7 +169,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Start[/center]"
-text = "Start"
+text = "[center]Start[/center]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,7 +203,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Quit[/center]"
-text = "Quit"
+text = "[center]Quit[/center]"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

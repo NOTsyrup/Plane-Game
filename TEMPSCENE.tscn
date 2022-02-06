@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Enemies/Misc/Enemies.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Bell-X1.tscn" type="PackedScene" id=2]
@@ -14,8 +14,10 @@
 [ext_resource path="res://Misc/GameOver.gd" type="Script" id=12]
 [ext_resource path="res://Player/ProgressBar/FullProgress (1).png" type="Texture" id=13]
 [ext_resource path="res://Boss/Music/Stage 3 BF Music.wav" type="AudioStream" id=14]
+[ext_resource path="res://Boss/Music/Explosion BF Music.wav" type="AudioStream" id=15]
 [ext_resource path="res://Boss/Music/Stage 2 BF Music.wav" type="AudioStream" id=16]
 [ext_resource path="res://Boss/Music/Stage 1 BF Music.wav" type="AudioStream" id=17]
+[ext_resource path="res://Misc/NextWave.gd" type="Script" id=18]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -62,6 +64,10 @@ stream = ExtResource( 16 )
 [node name="Stage 3" type="AudioStreamPlayer2D" parent="Player/Camera/BossHealth"]
 position = Vector2( 640, 360 )
 stream = ExtResource( 14 )
+
+[node name="Boss Death" type="AudioStreamPlayer2D" parent="Player/Camera/BossHealth"]
+position = Vector2( 640, 360 )
+stream = ExtResource( 15 )
 
 [node name="UntilBoss" type="TextureProgress" parent="Player/Camera"]
 anchor_right = 1.0
@@ -134,9 +140,70 @@ rect_pivot_offset = Vector2( 432, 76 )
 custom_fonts/font = ExtResource( 11 )
 text = "Menu"
 
+[node name="NextWave" type="Control" parent="Player"]
+visible = false
+margin_left = -640.0
+margin_top = -360.0
+margin_right = -600.0
+margin_bottom = -320.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Player/NextWave"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+color = Color( 0.584314, 0.537255, 0.537255, 0.752941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Player/NextWave/ColorRect"]
+margin_left = 86.0
+margin_top = 70.0
+margin_right = 1090.0
+margin_bottom = 171.0
+custom_fonts/font = ExtResource( 11 )
+text = "wave 1 complete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextWave" type="Button" parent="Player/NextWave/ColorRect"]
+margin_left = 254.0
+margin_top = 210.0
+margin_right = 924.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( 432, 76 )
+custom_fonts/font = ExtResource( 11 )
+text = "Next wave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="Player/NextWave/ColorRect"]
+margin_left = 254.0
+margin_top = 406.0
+margin_right = 924.0
+margin_bottom = 580.0
+rect_pivot_offset = Vector2( 432, 76 )
+custom_fonts/font = ExtResource( 11 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Enemies" parent="." instance=ExtResource( 1 )]
 boss = ExtResource( 6 )
 
 [connection signal="cameraShake" from="Player" to="Player/Camera" method="_on_Player_cameraShake"]
+[connection signal="finished" from="Player/Camera/BossHealth/Boss Death" to="Player/Camera" method="_on_Boss_Death_finished"]
+[connection signal="finished" from="Player/Camera/BossHealth/Boss Death" to="Player/Camera/BossHealth" method="_on_Boss_Death_finished"]
+[connection signal="finished" from="Player/Camera/BossHealth/Boss Death" to="Player/NextWave" method="_on_Boss_Death_finished"]
 [connection signal="pressed" from="Player/GameOver/ColorRect/Replay" to="Player/GameOver" method="_on_Replay_pressed"]
 [connection signal="pressed" from="Player/GameOver/ColorRect/Menu" to="Player/GameOver" method="_on_Menu_pressed"]
+[connection signal="pressed" from="Player/NextWave/ColorRect/NextWave" to="Player/NextWave" method="_on_NextWave_pressed"]
+[connection signal="pressed" from="Player/NextWave/ColorRect/Menu" to="Player/NextWave" method="_on_Menu_pressed"]

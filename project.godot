@@ -15,6 +15,10 @@ config_version=4
 config/name="Plane Game"
 run/main_scene="res://scenes/Menu.tscn"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=1280

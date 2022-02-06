@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if can_follow:
 		playerPos = get_tree().get_root().get_node("/root/Main/Player").position
 		look_at(playerPos)
-		var velocity = position.direction_to(playerPos) * 125
+		var velocity = position.direction_to(playerPos) * 100 * Global.enemy_speed_multi
 		if position.distance_to(playerPos) > 5:
 			velocity = move_and_slide(velocity)
 	else:

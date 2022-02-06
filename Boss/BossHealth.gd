@@ -1,5 +1,6 @@
 extends TextureProgress
 
+var play_music = true
 
 func _process(delta):
 	if get_tree().get_root().get_node("Main").boss_alive:
@@ -9,11 +10,12 @@ func _process(delta):
 			play_music()
 	else:
 		value = 0
-	if get_tree().get_root().get_node("Main").game_completed and not $"Boss Death".playing:
+	if get_tree().get_root().get_node("Main").game_completed and not $"Boss Death".playing and play_music:
 		$"Boss Death".play()
 		$"Stage 1".volume_db = -80
 		$"Stage 2".volume_db = -80
 		$"Stage 3".volume_db = -80
+		play_music = false
 	
 func play_music():
 	if get_tree().get_root().get_node("Main").game_completed == false:

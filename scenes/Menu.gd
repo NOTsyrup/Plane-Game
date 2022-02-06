@@ -15,8 +15,6 @@ func _on_StartButton_pressed():
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://CreditMenu.tscn")
 
-func_on_MoreInfoButton_pressed():
+
+func _on_MoreInfoButton_pressed():
 	get_tree().change_scene("res://MoreInfoPanel.tscn")
-	
-	func_on_MoreInfoButton_pressed():
-		get_tree().change_scene("res://Menu.tscn")

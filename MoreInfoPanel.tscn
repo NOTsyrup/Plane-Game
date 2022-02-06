@@ -1,11 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fonts/silkscreen.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/slkscr.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Sprites/MainMenuSprites/Start Screen.png" type="Texture" id=3]
-[ext_resource path="res://Boss/Big-Blue-Boss-Vertical/Layer 1_blue-boss1 2.png" type="Texture" id=4]
 [ext_resource path="res://Player/Textures/Bell-X1.png" type="Texture" id=5]
-[ext_resource path="res://Fonts/silkscreen 2.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Enemies/P-40/V Sprite/Layer 1_P-40-Boss-Vertical1.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -99,6 +97,8 @@ font_data = ExtResource( 2 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 rect_pivot_offset = Vector2( -916, 153 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -189,7 +189,7 @@ margin_right = 630.0
 margin_bottom = 420.0
 custom_fonts/normal_font = SubResource( 6 )
 text = "Use W-A-S-D to move Up, Left, Down and Right. 
-Use Left Mouse Button to fire the weapon attached to your aircraft. 
+Use Left Mouse Button or Space button to shoot a laser out of your aircraft
 Use your cursor to aim, prior to firing. (Crosshair)"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,7 +202,6 @@ margin_left = 789.0
 margin_top = 42.0
 margin_right = 550.92
 margin_bottom = 91.52
-texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -319,7 +318,6 @@ margin_left = 713.0
 margin_top = 452.0
 margin_right = 1217.0
 margin_bottom = 492.0
-custom_fonts/normal_font = ExtResource( 6 )
 text = "Curtiss P-40E Warhawk "
 __meta__ = {
 "_edit_use_anchors_": false

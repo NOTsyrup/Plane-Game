@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Enemies/Misc/Enemies.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Bell-X1.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Misc/NextWave.gd" type="Script" id=18]
 [ext_resource path="res://Level/ScoreLabel.gd" type="Script" id=19]
 [ext_resource path="res://Fonts/slkscr.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://LivesCounter.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -219,6 +220,20 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Score: "
 script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesCounter" type="Label" parent="CanvasLayer"]
+margin_left = 1004.04
+margin_top = 56.0
+margin_right = 1131.04
+margin_bottom = 87.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Lives: "
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

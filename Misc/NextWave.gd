@@ -13,7 +13,8 @@ func _on_NextWave_pressed():
 
 func _on_Menu_pressed():
 	get_tree().change_scene("res://Menu.tscn")
-	Global.enemy_speed_multi = 1
+	if Global.wave < 8:
+		Global.enemy_speed_multi = 1
 	Global.wave = 0
 	Global.score = 0
 

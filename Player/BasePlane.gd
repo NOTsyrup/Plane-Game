@@ -9,6 +9,7 @@ export var projectile_class:PackedScene
 export var UP_collision:RectangleShape2D
 export var RIGHT_collision:RectangleShape2D
 export var CORNER_collision:RectangleShape2D
+onready var LivesCounter = get_node("../CanvasLayer/LivesCounter")
 
 var velocity = Vector2(1,0)
 var is_cooldown = true
@@ -138,6 +139,7 @@ func take_damage(damage):
 		$OnHitTimer.start()
 		emit_signal("cameraShake")
 		$PlayerHitSound.play()
+		LivesCounter.update_lives(LIVES)
 		
 		
 func player_death():
